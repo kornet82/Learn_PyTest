@@ -8,11 +8,11 @@ from utils import division
 def test_division_good(a, b, expected_result):
     assert division(a, b) == expected_result
 
-def test_zero_division():
-    with pytest.raises(ZeroDivisionError):
-        division(10,0)
+@pytest.mark.parametrize("expected_exeption, divider, div", [(ZeroDivisionError, 0, 10),
+                                                   (TypeError,"abc", 10)])
+def test_type_error(expected_exeption, divider, div):
+    with pytest.raises(expected_exeption):
+        division(div, divider)
 
 
-def test_type_error():
-    with pytest.raises(TypeError):
-        division(10, 'abc')
+
