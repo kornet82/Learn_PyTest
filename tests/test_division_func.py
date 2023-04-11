@@ -1,9 +1,13 @@
 import pytest
 from utils import division
 
-@pytest.mark.parametrize()
-def test_division_good():
-    assert division(10,5) == 2
-    assert division(20,5) == 4
-    assert division(20,2) == 10
-    assert division(10,-5) == -2
+@pytest.mark.parametrize("a, b, expected_result", [(10, 5, 2),
+                                                   (10, -2, -5),
+                                                   (30, -3, -10),
+                                                   (5, 2, 2.5)])
+def test_division_good(a, b, expected_result):
+    assert division(a, b) == expected_result
+
+def test_zero_division():
+    division(10,0)
+
