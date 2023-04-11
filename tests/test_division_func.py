@@ -12,3 +12,7 @@ def test_zero_division():
     with pytest.raises(ZeroDivisionError):
         division(10,0)
 
+
+def test_type_error():
+    with pytest.raises(TypeError):
+        division(10, 'abc')
