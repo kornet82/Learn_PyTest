@@ -9,5 +9,6 @@ def test_division_good(a, b, expected_result):
     assert division(a, b) == expected_result
 
 def test_zero_division():
-    division(10,0)
+    with pytest.raises(ZeroDivisionError):
+        division(10,0)
 
